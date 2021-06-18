@@ -1,0 +1,19 @@
+.container {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 20%);
+}
+
+.container h2 {
+    margin: 0;
+    padding: 15px;
+    color: #9790F2;
+    font-weight: 400;
+}
+
+.firstletter {
+    color: #2A265F;
+    font-weight: 700;
+}

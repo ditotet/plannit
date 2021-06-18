@@ -1,0 +1,7 @@
+.container {
+    flex: 4
+}
+
+.container h2 {
+    margin-left: 20px;
+}
