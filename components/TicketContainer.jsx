@@ -1,9 +1,10 @@
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { useState } from 'react'
+import axios from 'axios'
+
 import ticketContainerStyles from '../styles/TicketContainer.module.css'
 
 import TicketColumn from './TicketColumn'
-
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import { useState } from 'react'
 
 
 const TicketContainer = ({ tickets }) => {
@@ -40,6 +41,17 @@ const TicketContainer = ({ tickets }) => {
             const [ deleted ] = ticketsGrouped[sourceId].splice(sourceIndex, 1)
             console.log(sourceIndex, destinationIndex)
             ticketsGrouped[destinationId].splice(destinationIndex, 0, deleted)
+            console.log(deleted)
+
+            if (sourceId !== destinationId) {
+                const { id } = deleted
+                console.log(ticketsGrouped[sourceId][sourceIndex])
+                axios.put(`/api/tickets/${id}`, {
+                    status: destination.droppableId
+                }).then((res) => {
+                    console.log(res)
+                })
+            }
 
             setTicketsGrouped(ticketsGrouped)
         }

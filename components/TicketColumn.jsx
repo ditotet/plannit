@@ -11,6 +11,7 @@ const TicketColumn = ({ title, ticketColumn, columnId }) => {
       <Droppable droppableId={ columnId } key={ columnId }>
         { (provided, snapshot) => (
           <div
+            className={ ticketColumnStyles.droppable }
             { ...provided.droppableProps }
             ref={ provided.innerRef }
           >

@@ -50,7 +50,7 @@ const updateTicket = (id, ticketInfo) => {
     for (let i = 0; i < tickets.length; i++) {
         if (tickets[i].id === id) {
             const updatedTicket = {
-                id,
+                ...tickets[i],
                 ...ticketInfo
             }
             tickets[i] = updatedTicket

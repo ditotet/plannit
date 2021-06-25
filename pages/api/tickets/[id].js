@@ -52,12 +52,18 @@ export default (req, res) => {
                 status
             } = body
 
-            const ticketInfo = {
+            let ticketInfo = {
                 assignee,
                 title,
                 description,
                 status
             }
+
+            ticketInfo = Object.keys(ticketInfo).filter(param => ticketInfo[param] !== undefined).reduce((obj, key) => {
+                obj[key] = ticketInfo[key]
+                return obj
+            }, {})
+            console.log(ticketInfo)
 
             const ticket = updateTicket(id, ticketInfo)
 
